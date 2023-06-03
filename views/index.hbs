@@ -1,0 +1,20 @@
+<div class="w-75 mx-auto">
+    <form action="/addtodo" method="post">
+    <div class="input-group ">
+        <input type="text" name="todo" class="form-control" placeholder="Enter Todo" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-primary" type="submit" id="btn_1">Add ToDo</button>
+    </div>
+    </form>
+    <div class="w-75 mx-auto ">
+        {{#if Todos.length}}
+    <ul class="list-group  d-flex">
+        {{#each Todos}}
+            <div><li class="list-group-item">{{todo}}</li> </div>
+            <div class=" ms-auto p-2 bd-highlight ">
+            <button class="btn btn-success"><a href="/edit_{{_id}}" class="text-decaration-none text-light">Edit</a></button>
+            <button class="btn btn-danger"><a href="/delete" class="text-decaration-none text-light">Delete</a></button></div>
+         {{/each}}
+    </ul>
+    {{/if}}
+    </div>
+</div>
