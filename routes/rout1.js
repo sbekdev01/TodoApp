@@ -7,6 +7,7 @@ router.use(bodyParser.urlencoded({extended:true}))
 //Get
 router.get('/delete',async(req,res)=>{
     const id =req.params._id;
+    
     ToDo.deleteOne(id)
     .then(()=>{
         console.log('DElETED');
@@ -30,6 +31,7 @@ router.get('/edit_:_id', async (req, res)=>{
         product:product.todo,
         idproduct:product._id
     })
+    console.log('Edited');
  });
 //Post
 router.post('/addtodo',bodyParser.urlencoded({extended:true}),async(req,res)=>{
@@ -39,6 +41,7 @@ router.post('/addtodo',bodyParser.urlencoded({extended:true}),async(req,res)=>{
     const Todo = await ToDo.create(todoData)
     
     res.redirect('/')
+    console.log('Add Todo');
 })
 
 router.post('/edit/:_id',async (req,res)=>{
